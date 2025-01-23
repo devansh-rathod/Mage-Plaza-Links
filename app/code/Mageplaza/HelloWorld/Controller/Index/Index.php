@@ -1,24 +1,9 @@
 <?php
-namespace Mageplaza\HelloWorld\Controller\Index;
+namespace Mageplaza\HelloWorld\Block;
 
-use Magento\Framework\App\Action\Action;
-use Magento\Framework\App\Action\Context;
-use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\View\Element\Template;
 
-class Index extends Action
+class Index extends Template
 {
-    protected $_pageFactory;
-
-    public function __construct(
-        Context $context,
-        PageFactory $pageFactory
-    ) {
-        $this->_pageFactory = $pageFactory;
-        parent::__construct($context);
-    }
-
-    public function execute()
-    {
-        return $this->_pageFactory->create();
-    }
+    // Custom methods can be added here
 }
