@@ -104,6 +104,6 @@ return [
         'devansh.magento.com'
     ],
     'install' => [
-        'date' => 'Fri, 17 Jan 2025 13:33:05 +0000'
+        'date' => 'Sun, 26 Jan 2025 18:52:09 +0000'
     ]
 ];
