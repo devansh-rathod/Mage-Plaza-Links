@@ -1,12 +1,11 @@
 <?php
-
-namespace Mageplaza\HelloWorld\Controller\Index;
+namespace Mageplaza\Customize\Controller\Index;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Controller\ResultInterface;
 
-class Display implements HttpGetActionInterface
+class Index implements HttpGetActionInterface
 {
     private readonly PageFactory $pageFactory;
 

@@ -1,12 +1,20 @@
 <?php
 namespace Mageplaza\HelloWorld\Model\ResourceModel;
 
-use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
-class Post extends AbstractDb
+class Post extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
-    protected function _construct()
-    {
-        $this->_init('mageplaza_helloworld_post', 'post_id');
-    }
+	
+	public function __construct(
+		\Magento\Framework\Model\ResourceModel\Db\Context $context
+	)
+	{
+		parent::__construct($context);
+	}
+	
+	protected function _construct()
+	{
+		$this->_init('mageplaza_helloworld_post', 'post_id');
+	}
+	
 }

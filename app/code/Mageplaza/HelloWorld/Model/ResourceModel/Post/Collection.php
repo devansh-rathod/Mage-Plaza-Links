@@ -1,14 +1,21 @@
 <?php
 namespace Mageplaza\HelloWorld\Model\ResourceModel\Post;
 
-use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
-use Mageplaza\HelloWorld\Model\Post as Model;
-use Mageplaza\HelloWorld\Model\ResourceModel\Post as ResourceModel;
-
-class Collection extends AbstractCollection
+class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
-    protected function _construct()
-    {
-        $this->_init(Model::class, ResourceModel::class);
-    }
+	protected $_idFieldName = 'post_id';
+	protected $_eventPrefix = 'mageplaza_helloworld_post_collection';
+	protected $_eventObject = 'post_collection';
+
+	/**
+	 * Define resource model
+	 *
+	 * @return void
+	 */
+	protected function _construct()
+	{
+		$this->_init('Mageplaza\HelloWorld\Model\Post', 'Mageplaza\HelloWorld\Model\ResourceModel\Post');
+	}
+
 }
+

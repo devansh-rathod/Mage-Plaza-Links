@@ -1,33 +1,43 @@
-<?php
-namespace Mageplaza\HelloWorld\Controller\Index;
 
-class Index extends \Magento\Framework\App\Action\Action
+
+<!-- namespace Mageplaza\HelloWorld\Controller\Index;
+
+use Magento\Framework\App\Action\HttpGetActionInterface;
+use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\Controller\ResultInterface;
+use Mageplaza\HelloWorld\Model\PostFactory;
+ 
+class Index implements HttpGetActionInterface
 {
-	protected $_pageFactory;
+    private PageFactory $pageFactory;
+    // private PostFactory $postFactory;
 
-	protected $_postFactory;
+    public function __construct(
+        PageFactory $pageFactory,
+        PostFactory $postFactory
+    ) {
+        $this->pageFactory = $pageFactory;
+        $this->postFactory = $postFactory;
+    }
 
-	public function __construct(
-		\Magento\Framework\App\Action\Context $context,
-		\Magento\Framework\View\Result\PageFactory $pageFactory,
-		\Mageplaza\HelloWorld\Model\PostFactory $postFactory
-		)
-	{
-		$this->_pageFactory = $pageFactory;
-		$this->_postFactory = $postFactory;
-		return parent::__construct($context);
-	}
+    public function execute(): ResultInterface
+    {
+        // Load posts from the PostFactory
+        $post = $this->postFactory->create();
+        $collection = $post->getCollection();
 
-	public function execute()
-	{
-		$post = $this->_postFactory->create();
-		$collection = $post->getCollection();
-		foreach($collection as $item){
-			echo "<pre>";
-			print_r($item->getData());
-			echo "</pre>";
-		}
-		exit();
-		return $this->_pageFactory->create();
-	}
-}
+        // Prepare the data for output
+        $data = [];
+        foreach ($collection as $item) {
+            $data[] = $item->getData();
+        }
+
+        // Render the page result (you can modify this part for other types of results if needed)
+        $pageResult = $this->pageFactory->create();
+
+        // You can pass the $data to the page's layout if needed
+        $pageResult->getLayout()->getBlock('content')->setData('posts', $data);
+
+        return $pageResult;
+    }
+}   -->
